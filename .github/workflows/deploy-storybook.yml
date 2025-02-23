@@ -1,0 +1,35 @@
+name: Deploy Storybook
+
+on:
+  push:
+    branches:
+      - main  # Change this if you use a different default branch
+
+permissions:
+  contents: write  # Needed for GitHub Pages
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.14.0  # Use the version your project requires
+
+      - name: Install dependencies
+        run: npm install  # Or yarn install
+
+      - name: Build Storybook
+        run: npm run build-storybook  # Or yarn build-storybook
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # Deploy to gh-pages branch
+          folder: storybook-static  # Folder to deploy
+          clean: true
