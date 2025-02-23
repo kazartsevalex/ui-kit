@@ -3,10 +3,10 @@ name: Deploy Storybook
 on:
   push:
     branches:
-      - main  # Change this if you use a different default branch
+      - main
 
 permissions:
-  contents: write  # Needed for GitHub Pages
+  contents: write
 
 jobs:
   deploy:
@@ -19,17 +19,17 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 22.14.0  # Use the version your project requires
+          node-version: 22.14.0
 
       - name: Install dependencies
-        run: npm install  # Or yarn install
+        run: npm install
 
       - name: Build Storybook
-        run: npm run build-storybook  # Or yarn build-storybook
+        run: npm run build-storybook
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages  # Deploy to gh-pages branch
-          folder: storybook-static  # Folder to deploy
+          branch: gh-pages
+          folder: storybook-static
           clean: true
