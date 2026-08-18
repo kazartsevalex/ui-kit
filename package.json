@@ -2,7 +2,12 @@
   "name": "@kazartsevalex/ui-kit",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@11.22.0",
   "homepage": "https://kazartsevalex.github.io/ui-kit/",
+  "engines": {
+    "node": "24.x",
+    "pnpm": "11.x"
+  },
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
